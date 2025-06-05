@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block title %}Create Shipment{% endblock %}
+
+{% block content %}
+{% if message %}
+<script>
+    alert("{{ message }}");
+</script>
+{% endif %}
+
+<style>
+  .form-container {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 30px 40px;
+    border: 2px solid #4CAF50;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .form-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+  }
+
+  .form-container label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+    color: #555;
+  }
+
+  .form-container input[type="text"],
+  .form-container input[type="number"],
+  .form-container input[type="date"],
+  .form-container select,
+  .form-container textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 20px;
+    border: 1.8px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border-color 0.3s;
+  }
+
+  .form-container input[type="text"]:focus,
+  .form-container input[type="number"]:focus,
+  .form-container input[type="date"]:focus,
+  .form-container select:focus,
+  .form-container textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+  }
+
+  .form-container button[type="submit"],
+  .form-container button[type="reset"] {
+    width: 100%;
+    font-size: 17px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .form-container button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .form-container button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+  .form-container button[type="reset"] {
+    background-color: #dc3545;
+    color: white;
+    margin-top: 10px;
+  }
+
+  .form-container button[type="reset"]:hover {
+    background-color: #b02a37;
+  }
+</style>
+
+<div class="form-container">
+  <h1>Create Shipment</h1>
+  {% if error %}
+  <p style="color: red;">{{ error }}</p>
+  {% endif %}
+  <form action="/admin/shipments/create" method="post">
+      <label>Shipment Number:</label>
+      <input type="text" name="shipmentNumber" required>
+
+      <label>Route:</label>
+      <select name="route" required>
+          <option value="" disabled selected>Select a route</option>
+          <option value="Route A">Route A</option>
+          <option value="Route B">Route B</option>
+          <option value="Route C">Route C</option>
+          <option value="Route D">Route D</option>
+      </select>
+
+      <label>Device:</label>
+      <select name="device" required>
+          <option value="" disabled selected>Select a device</option>
+          <option value="Device X">Device X</option>
+          <option value="Device Y">Device Y</option>
+          <option value="Device Z">Device Z</option>
+          <option value="Device W">Device W</option>
+      </select>
+
+      <label>PO Number:</label>
+      <input type="number" name="poNumber" required>
+
+      <label>NDC Number:</label>
+      <input type="number" name="ndcNumber" required>
+
+      <label>Serial Number:</label>
+      <input type="number" name="serialNumber" required>
+
+      <label>Goods Type:</label>
+      <select name="goodsType" required>
+          <option value="" disabled selected>Select goods type</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Pharmaceutical">Pharmaceutical</option>
+          <option value="Food">Food</option>
+          <option value="Clothing">Clothing</option>
+      </select>
+
+      <label>Delivery Date:</label>
+      <input type="date" name="deliveryDate" id="deliveryDate" required>
+
+      <label>Delivery Number:</label>
+      <input type="number" name="deliveryNumber" required>
+
+      <label>Batch ID:</label>
+      <input type="text" name="batchId" required>
+
+      <label>Shipment Description:</label>
+      <textarea name="shipmentDesc" rows="3" required></textarea>
+
+      <button type="submit">Create Shipment</button>
+      <button type="reset">Clear Details</button>
+  </form>
+</div>
+
+<script>
+  const deliveryDateInput = document.getElementById('deliveryDate');
+  const today = new Date().toISOString().split('T')[0];
+  deliveryDateInput.setAttribute('min', today);
+</script>
+{% endblock %}

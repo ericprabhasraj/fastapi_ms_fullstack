@@ -1,0 +1,130 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+}
+
+/* Form Styling */
+.form-container {
+    max-width: 400px;
+    margin: 100px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+input, button, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Admin Layout */
+.dashboard-container {
+    max-width: 1000px;
+    margin: auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+/* Buttons */
+.action-btn {
+    margin-right: 5px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+}
+
+.edit-btn {
+    background-color: #007BFF;
+}
+
+.edit-btn:hover {
+    background-color: #0056b3;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+}
+
+.delete-btn:hover {
+    background-color: #b02a37;
+}
+
+/* Sidebar from base.html */
+.sidebar {
+    width: 220px;
+    background-color: #343a40;
+    color: white;
+    height: 100vh;
+    padding-top: 40px;
+    position: fixed;
+}
+
+.sidebar a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #495057;
+}
+
+.logout {
+    margin-top: 40px;
+    background-color: #dc3545;
+}
+
+.logout:hover {
+    background-color: #b02a37;
+}
+
+/* Page Content */
+.content {
+    margin-left: 220px;
+    padding: 40px;
+    width: 100%;
+}

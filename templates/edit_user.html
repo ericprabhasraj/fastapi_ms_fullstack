@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block content %}
+    <h1>Edit User</h1>
+    <form action="/admin/users/edit/{{ user.id }}" method="post">
+        <label>Username:</label>
+        <input type="text" name="username" value="{{ user.name }}" required><br><br>
+
+        <label>Email:</label>
+        <input type="email" name="email" value="{{ user.email }}" required><br><br>
+
+        <label>Role:</label>
+        <select name="role">
+            <option value="user" {% if user.role == 'user' %}selected{% endif %}>User</option>
+            <option value="admin" {% if user.role == 'admin' %}selected{% endif %}>Admin</option>
+        </select><br><br>
+
+        <button type="submit">Update</button>
+    </form>
+{% endblock %}

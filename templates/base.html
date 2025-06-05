@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Admin Panel{% endblock %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 220px;
+            background-color: #343a40;
+            color: white;
+            height: 100vh;
+            padding-top: 40px;
+            position: fixed;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #495057;
+        }
+
+        .logout {
+            margin-top: 40px;
+            background-color: #dc3545;
+        }
+
+        .logout:hover {
+            background-color: #b02a37;
+        }
+
+        .content {
+            margin-left: 220px;
+            padding: 40px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="/admin-dashboard">Dashboard</a>
+        <a href="/admin/users">User Details</a>
+        <a href="/admin/shipments">Shipment Details</a>
+        <a href="/admin/shipments/create">Create Shipment</a>
+        <a href="/admin/devices">Device Data</a>
+        <a href="/logout" class="logout">Logout</a>
+    </div>
+    <div class="content">
+        {% block content %}
+        <!-- Page-specific content will go here -->
+        {% endblock %}
+    </div>
+</body>
+</html>

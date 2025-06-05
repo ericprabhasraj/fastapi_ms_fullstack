@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Login</h2>
+        {% if message %}
+            <p style="color:green;">{{ message }}</p>
+        {% endif %}
+        <form method="post" action="/login">
+            <input type="email" name="email" placeholder="Email" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <div class="g-recaptcha" data-sitekey="{{ recaptcha_site_key }}"></div><br>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="/signup">Signup</a></p>
+    </div>
+</body>
+</html>
